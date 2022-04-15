@@ -27,7 +27,6 @@ public class MarkdownParse {
 
             System.out.print("noimg: "+noImage + "openbrak: " + openBracket);
             if (noImage == openBracket-1) {
-                System.out.println(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen;
                 continue;
             }
