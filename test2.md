@@ -9,6 +9,3 @@ sometext here
 [link2](some-thing.html)
 
 
-
-
-texty
