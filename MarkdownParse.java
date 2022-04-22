@@ -15,7 +15,7 @@ public class MarkdownParse {
 
             int noImage = markdown.indexOf("!", currentIndex);
             
-
+                
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
@@ -24,8 +24,6 @@ public class MarkdownParse {
             if (openBracket == -1 || openParen == -1) {
                 break;
             }
-
-            System.out.print("noimg: "+noImage + "openbrak: " + openBracket);
             if (noImage == openBracket-1) {
                 currentIndex = closeParen;
                 continue;
@@ -46,5 +44,6 @@ public class MarkdownParse {
         String content = Files.readString(fileName);
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
+        System.out.println("And time");
     }
 }
