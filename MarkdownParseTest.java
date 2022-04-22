@@ -32,4 +32,35 @@ public class MarkdownParseTest {
 
     }
 
+    @Test 
+    public void markdownTestFileTwo() throws IOException{
+
+        Path fileName = Path.of("test2.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+	    System.out.println(links);
+
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("Supposed link");
+
+        assertEquals(expected, links );
+
+
+    }
+    
+    @Test 
+    public void markdownTestFileThree() throws IOException{
+
+        Path fileName = Path.of("test3.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+	    System.out.println(links);
+
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("true link");
+
+        assertEquals(expected, links );
+
+
+    }
 }

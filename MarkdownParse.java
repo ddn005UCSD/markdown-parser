@@ -24,6 +24,10 @@ public class MarkdownParse {
             if (openBracket == -1 || openParen == -1) {
                 break;
             }
+            if ((closeBracket+1)!=openParen) {
+                currentIndex = closeBracket;
+                continue;
+            }
             if (noImage == openBracket-1) {
                 currentIndex = closeParen;
                 continue;
