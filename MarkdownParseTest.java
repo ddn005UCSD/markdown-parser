@@ -168,10 +168,17 @@ public class MarkdownParseTest {
     }
 
     @Test 
-    public void failingTest() {
+    public void markdownTestFilesRepository9() throws IOException{
+        System.out.println("Test5");
+        Path fileName = Path.of("test5.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+	    System.out.println(links);
 
+        ArrayList<String> expected = new ArrayList<>();
+        
 
-        assertEquals(3, 4);
+        assertEquals(expected, links );
 
 
     }
