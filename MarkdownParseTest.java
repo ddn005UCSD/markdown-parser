@@ -183,5 +183,26 @@ public class MarkdownParseTest {
 
     }
 
-    
+    @Test 
+    public void markdownTestLab7GroupBTest() throws IOException{
+
+        Path fileName = Path.of("lab7OutsideTest.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> result = MarkdownParse.getLinks(content);
+        assertEquals(new ArrayList<String>(), result);
+
+
+        // System.out.println("Test5");
+        // Path fileName = Path.of("test5.md");
+        // String content = Files.readString(fileName);
+        // ArrayList<String> links = MarkdownParse.getLinks(content);
+	    // System.out.println(links);
+
+        // ArrayList<String> expected = new ArrayList<>();
+        
+
+        // assertEquals(expected, links );
+
+
+    }
 }
