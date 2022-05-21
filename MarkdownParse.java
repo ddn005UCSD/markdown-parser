@@ -25,6 +25,8 @@ public class MarkdownParse {
                 break;
             }
 
+            
+            
             //Checks if link is closed like ]( 
             if ((closeBracket+1)!=openParen) {
                 currentIndex = closeBracket;
