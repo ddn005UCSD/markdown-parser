@@ -191,18 +191,54 @@ public class MarkdownParseTest {
         ArrayList<String> result = MarkdownParse.getLinks(content);
         assertEquals(new ArrayList<String>(), result);
 
+    }
 
-        // System.out.println("Test5");
-        // Path fileName = Path.of("test5.md");
-        // String content = Files.readString(fileName);
-        // ArrayList<String> links = MarkdownParse.getLinks(content);
-	    // System.out.println(links);
+    @Test 
+    public void labReport4SnippetOne() throws IOException{
+        System.out.println("LabReport4S1");
+        Path fileName = Path.of("labReport4Snippet1.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+	    System.out.println(links);
 
-        // ArrayList<String> expected = new ArrayList<>();
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("`google.com");
+        expected.add("google.com");
+        expected.add("ucsd.edu");
         
 
-        // assertEquals(expected, links );
+        assertEquals(expected, links );
 
 
     }
+
+    @Test 
+    public void labReport4SnippetTwo() throws IOException{
+        System.out.println("LabReport4S2");
+        Path fileName = Path.of("labReport4Snippet2.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+	    System.out.println(links);
+
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
+        assertEquals(expected, links );
+    }
+
+    @Test 
+    public void labReport4SnippetThree() throws IOException{
+        System.out.println("LabReport4S2");
+        Path fileName = Path.of("labReport4Snippet3.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+	    System.out.println(links);
+
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
+        assertEquals(expected, links );
+    }
+
+
 }

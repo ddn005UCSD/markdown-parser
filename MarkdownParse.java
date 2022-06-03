@@ -24,9 +24,22 @@ public class MarkdownParse {
             if (openBracket == -1 || openParen == -1 || currentIndex == -1) {
                 break;
             }
+
+            
+            
+            //Checks if link is closed like ]( 
             if ((closeBracket+1)!=openParen) {
                 currentIndex = closeBracket;
-                continue;
+
+                int nextOpen = markdown.indexOf("[", currentIndex);
+                int nextClosed = closeBracket = markdown.indexOf("]", openBracket);
+
+                //checks if link text is [ test]]() 
+                if(!(nextOpen < nextClosed)) {
+                    continue;
+                } 
+
+                // continue;
             }
             if (noImage == openBracket-1) {
                 currentIndex = closeParen;
@@ -46,6 +59,9 @@ public class MarkdownParse {
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of(args[0]);
         String content = Files.readString(fileName);
+        System.out.println("CONTENT:");
+        System.out.println(content);
+        System.out.println("END");
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
     }
